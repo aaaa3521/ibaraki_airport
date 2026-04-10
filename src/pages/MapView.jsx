@@ -32,9 +32,9 @@ const INTERVAL_MS = 60
 
 // アイコン定義
 const PRODUCT_STYLES = {
-  melon:        { Icon: Leaf,    color: '#4ade80', bg: '#052e16' },
-  hoshiimo:     { Icon: Package, color: '#fbbf24', bg: '#1c1009' },
-  hitachi_beef: { Icon: Beef,    color: '#f87171', bg: '#1c0a0a' },
+  melon:        { Icon: Leaf,    color: '#16a34a', bg: '#f0fdf4' },
+  hoshiimo:     { Icon: Package, color: '#b45309', bg: '#fffbeb' },
+  hitachi_beef: { Icon: Beef,    color: '#dc2626', bg: '#fff1f2' },
 }
 
 function makeIcon(iconEl, opts = {}) {
@@ -137,28 +137,28 @@ export default function MapView() {
   // アイコン生成
   const airportIcon = makeIcon(
     createElement(Plane, { size: 20, color: '#F5A800', strokeWidth: 2 }),
-    { bg: '#001a3a', border: '#F5A800', size: 42, label: '茨城空港', labelColor: '#F5A800' }
+    { bg: '#003B6F', border: '#F5A800', size: 42, label: '茨城空港', labelColor: '#F5A800' }
   )
   const userIcon = makeIcon(
-    createElement(User, { size: 18, color: '#00d4ff', strokeWidth: 2 }),
-    { bg: '#001833', border: '#00d4ff', size: 36, label: 'あなた', labelColor: '#00d4ff' }
+    createElement(User, { size: 18, color: '#003B6F', strokeWidth: 2 }),
+    { bg: '#e0eaf5', border: '#003B6F', size: 36, label: 'あなた', labelColor: '#003B6F' }
   )
 
   return (
-    <div className="flex flex-col min-h-screen pb-20 bg-[#0a0f1e]">
+    <div className="flex flex-col min-h-screen pb-20 bg-slate-50">
       {/* Header */}
-      <header className="bg-[#0a0f1e] border-b border-slate-800 px-4 py-3">
+      <header className="bg-[#003B6F] text-white px-4 py-4 shadow-md">
         <div className="max-w-lg mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#F5A800] flex items-center justify-center">
-              <Truck size={16} color="#0a0f1e" strokeWidth={2.5} />
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-full bg-[#F5A800] flex items-center justify-center flex-shrink-0">
+              <Truck size={18} color="white" strokeWidth={2.5} />
             </div>
             <div>
-              <h1 className="text-white text-base font-bold leading-tight">集荷マップ</h1>
-              <p className="text-slate-500 text-xs">リアルタイム追跡</p>
+              <h1 className="text-lg font-bold leading-tight">集荷マップ</h1>
+              <p className="text-blue-200 text-xs mt-0.5">リアルタイム追跡</p>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-emerald-400">
+          <div className="flex items-center gap-1.5 text-xs text-emerald-300">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
             追跡中
           </div>
@@ -174,8 +174,8 @@ export default function MapView() {
           zoomControl={false}
         >
           <TileLayer
-            url="https://cartodb-basemaps-a.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           />
 
           {/* 全ルートの点線 */}
@@ -234,56 +234,56 @@ export default function MapView() {
         </MapContainer>
       </div>
 
-      {/* Go タクシー風ステータスパネル */}
-      <div className="bg-[#0d1420] border-t border-slate-800 px-4 py-3">
+      {/* ステータスパネル */}
+      <div className="bg-white border-t border-slate-200 px-4 py-3 shadow-lg">
         <div className="max-w-lg mx-auto">
           {/* トラック情報 */}
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-[#F5A800] flex items-center justify-center flex-shrink-0">
-                <Truck size={18} color="#0a0f1e" strokeWidth={2.5} />
+                <Truck size={18} color="white" strokeWidth={2.5} />
               </div>
               <div>
-                <div className="text-white text-sm font-bold">集荷トラック #IBR-01</div>
-                <div className="flex items-center gap-1 text-xs text-slate-400 mt-0.5">
-                  <Navigation size={10} className="text-[#F5A800]" />
-                  <span className="text-[#F5A800] font-medium">{seg.from}</span>
-                  <ArrowRight size={10} className="text-slate-500" />
-                  <span className="text-white">{seg.to}</span>
+                <div className="text-slate-800 text-sm font-bold">集荷トラック #IBR-01</div>
+                <div className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
+                  <Navigation size={10} className="text-[#003B6F]" />
+                  <span className="text-[#003B6F] font-medium">{seg.from}</span>
+                  <ArrowRight size={10} className="text-slate-400" />
+                  <span className="text-slate-700 font-medium">{seg.to}</span>
                 </div>
               </div>
             </div>
             <div className="text-right">
-              <div className="text-[#F5A800] text-lg font-bold">{seg.eta}</div>
-              <div className="text-slate-500 text-xs">到着予定</div>
+              <div className="text-[#003B6F] text-lg font-bold">{seg.eta}</div>
+              <div className="text-slate-400 text-xs">到着予定</div>
             </div>
           </div>
 
           {/* ルートステップ */}
-          <div className="flex items-center gap-1 overflow-x-auto pb-1 scrollbar-hide">
+          <div className="flex items-center gap-1 overflow-x-auto pb-1">
             {ROUTE_WAYPOINTS.slice(0, -1).map((_, i) => {
               const label = i === 0 ? '空港' : FARMERS[i - 1]?.name ?? ''
               const done = i < segment
               const active = i === segment
               return (
                 <div key={i} className="flex items-center gap-1 flex-shrink-0">
-                  <div className={`flex flex-col items-center gap-0.5`}>
+                  <div className="flex flex-col items-center gap-0.5">
                     <div className={`w-2 h-2 rounded-full ${
-                      done ? 'bg-emerald-500' : active ? 'bg-[#F5A800] animate-pulse' : 'bg-slate-700'
+                      done ? 'bg-emerald-500' : active ? 'bg-[#F5A800] animate-pulse' : 'bg-slate-300'
                     }`} />
                     <span className={`text-[10px] whitespace-nowrap ${
-                      done ? 'text-emerald-500' : active ? 'text-[#F5A800] font-bold' : 'text-slate-600'
+                      done ? 'text-emerald-600' : active ? 'text-[#003B6F] font-bold' : 'text-slate-400'
                     }`}>{label}</span>
                   </div>
                   {i < ROUTE_WAYPOINTS.length - 2 && (
-                    <div className={`w-6 h-px mb-3 ${done ? 'bg-emerald-500' : 'bg-slate-700'}`} />
+                    <div className={`w-6 h-px mb-3 ${done ? 'bg-emerald-400' : 'bg-slate-200'}`} />
                   )}
                 </div>
               )
             })}
             <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
-              <div className={`w-2 h-2 rounded-full ${segment === ROUTE_WAYPOINTS.length - 2 && false ? 'bg-emerald-500' : 'bg-slate-700'}`} />
-              <span className="text-[10px] text-slate-600">空港</span>
+              <div className="w-2 h-2 rounded-full bg-slate-300" />
+              <span className="text-[10px] text-slate-400">空港</span>
             </div>
           </div>
         </div>
