@@ -25,19 +25,23 @@ export async function fetchRoadRoute(waypoints, apiKey) {
       {
         method: 'POST',
         headers: {
-          Authorization: apiKey,
+          Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
-          Accept: 'application/json',
+          Accept: 'application/json, application/geo+json',
         },
         body: JSON.stringify({ coordinates }),
       }
     )
-    if (!res.ok) throw new Error(`ORS ${res.status}`)
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '')
+      throw new Error(`ORS ${res.status}: ${errText}`)
+    }
     const data = await res.json()
+    console.log('[ORS] ルート取得成功 ポイント数:', data.features[0].geometry.coordinates.length)
     // ORS は [lng, lat] で返すので Leaflet 用に変換
     return data.features[0].geometry.coordinates.map(([lng, lat]) => [lat, lng])
   } catch (e) {
-    console.warn('ORS ルート取得失敗、直線補間にフォールバック:', e)
+    console.error('[ORS] ルート取得失敗、直線補間にフォールバック:', e)
     return interpolateStraight(waypoints)
   }
 }
