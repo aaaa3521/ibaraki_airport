@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.map-tiles-muted {
+  filter: saturate(0.15) brightness(1.08);
+}
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
