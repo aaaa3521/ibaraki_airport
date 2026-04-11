@@ -121,6 +121,7 @@ export default function MapView() {
   // ルート取得
   useEffect(() => {
     const apiKey = import.meta.env.VITE_ORS_API_KEY ?? ''
+    console.log('[ORS] APIキー確認:', apiKey ? `先頭10文字: ${apiKey.slice(0, 10)}...` : '❌ 未設定（直線フォールバック）')
     Promise.all(
       TRUCK_DEFS.map(truck => fetchRoadRoute(truck.waypoints, apiKey))
     ).then(results => {
@@ -170,8 +171,8 @@ export default function MapView() {
           zoomControl={false}
         >
           <TileLayer
-            url="https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           />
 
           {/* 各トラックのルートライン */}
