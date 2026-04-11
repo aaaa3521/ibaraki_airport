@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Leaf, Package, Beef, Bot, Minus, Plus, ArrowRight } from 'lucide-react'
+import { ArrowLeft, Leaf, Package, Beef, Fish, Apple, Cherry, Bot, Minus, Plus, ArrowRight } from 'lucide-react'
 import { FLIGHTS, getAvailableBelly, getCapacityPercent } from '@/data/flights'
 import { PRODUCTS } from '@/data/products'
 import { calcPricePerKg, calcTotal } from '@/data/pricing'
@@ -11,6 +11,9 @@ const PRODUCT_ICONS = {
   melon:        { Icon: Leaf,    color: '#16a34a' },
   hoshiimo:     { Icon: Package, color: '#b45309' },
   hitachi_beef: { Icon: Beef,    color: '#dc2626' },
+  hirame:       { Icon: Fish,    color: '#0284c7' },
+  ringo:        { Icon: Apple,   color: '#e11d48' },
+  tochiotome:   { Icon: Cherry,  color: '#db2777' },
 }
 
 export default function Booking() {
@@ -88,7 +91,7 @@ export default function Booking() {
         {/* Product selector */}
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
           <h2 className="text-sm font-bold text-slate-700 mb-3">農産物を選択</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-2 max-h-64 overflow-y-auto">
             {PRODUCTS.map((p) => {
               const { Icon, color } = PRODUCT_ICONS[p.id] ?? {}
               const active = selectedProduct?.id === p.id
