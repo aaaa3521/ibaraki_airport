@@ -93,11 +93,13 @@ function AnimatedTruck({ route, color, truckId }) {
 
     const icon = makeTruckIcon(color)
     if (markerRef.current) map.removeLayer(markerRef.current)
-    markerRef.current = L.marker(route[0], { icon, zIndexOffset: 1000 + truckId }).addTo(map)
-    indexRef.current = 0
+    // トラックごとにルート上の開始位置をずらす（全台が同時に空港を出発しない）
+    const startIndex = Math.floor((route.length / 3) * ((truckId - 1) % 3))
+    indexRef.current = startIndex
+    markerRef.current = L.marker(route[startIndex], { icon, zIndexOffset: 1000 + truckId }).addTo(map)
 
-    // 1周30秒を目安にインターバルを計算
-    const intervalMs = Math.max(30, Math.floor(30000 / route.length))
+    // 1周30分を目安にインターバルを計算
+    const intervalMs = Math.max(80, Math.floor(1800000 / route.length))
 
     timerRef.current = setInterval(() => {
       indexRef.current = (indexRef.current + 1) % route.length
