@@ -50,9 +50,11 @@ export default function RoleSelect() {
       {/* Hero section */}
       <div style={{
         position: 'relative', height: 'calc(100svh - 52px)', overflow: 'hidden', scrollSnapAlign: 'start', flexShrink: 0,
+        background: '#87CEEB',
         backgroundImage: `url(${airplane})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: 'contain',
+        backgroundPosition: 'center bottom',
+        backgroundRepeat: 'no-repeat',
       }}>
         {/* Overlay */}
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)' }} />
