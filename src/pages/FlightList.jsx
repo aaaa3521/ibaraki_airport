@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plane, ArrowRight, ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react'
+import { Plane, ArrowRight, ArrowLeft, ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react'
 import { FLIGHTS, getAvailableBelly, getCapacityPercent } from '@/data/flights'
 import CapacityBar from '@/components/CapacityBar'
 
@@ -47,6 +47,9 @@ export default function FlightList() {
       <header className="bg-[#003B6F] text-white px-4 py-4 shadow-md">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 mb-1">
+            <button onClick={() => navigate(-1)} className="text-blue-300 hover:text-white transition-colors">
+              <ArrowLeft size={20} />
+            </button>
             <div className="w-9 h-9 rounded-full bg-[#F5A800] flex items-center justify-center flex-shrink-0">
               <Plane size={20} color="white" strokeWidth={2} />
             </div>
