@@ -1,69 +1,140 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Plane, Leaf, ShoppingBag, ArrowRight } from 'lucide-react'
+import { Plane, ArrowRight, LogIn } from 'lucide-react'
 
 export default function RoleSelect() {
   const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState('farmer')
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif', background: '#ffffff', minHeight: '100vh', color: '#333333' }}>
+
       {/* Header */}
-      <header className="bg-[#003B6F] text-white px-4 pt-10 pb-8 text-center">
-        <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="w-12 h-12 rounded-full bg-[#F5A800] flex items-center justify-center shadow-lg">
-            <Plane size={24} color="white" strokeWidth={2} />
+      <header style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5', padding: '0 20px', height: 56, display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'sticky', top: 0, zIndex: 30 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ background: '#1a3a5c', borderRadius: 8, width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Plane size={17} color="white" strokeWidth={2} />
           </div>
+          <span style={{ fontWeight: 800, fontSize: 16, color: '#1a3a5c', letterSpacing: -0.3 }}>茨城空港マルシェ</span>
         </div>
-        <h1 className="text-xl font-bold leading-tight">茨城空港マルシェ</h1>
-        <p className="text-blue-200 text-xs mt-1">Ibaraki Airport Fresh Market</p>
-        <p className="text-blue-100 text-sm mt-3 leading-relaxed">
-          空路で繋ぐ、産地直送の農産物プラットフォーム
-        </p>
+        <button style={{
+          border: '1.5px solid #1a3a5c', borderRadius: 6, padding: '6px 14px',
+          fontSize: 13, fontWeight: 600, color: '#1a3a5c', background: 'white', cursor: 'pointer',
+          display: 'flex', alignItems: 'center', gap: 5,
+        }}>
+          <LogIn size={13} /> ログイン
+        </button>
       </header>
 
-      {/* Role selection */}
-      <div className="flex-1 flex flex-col justify-center px-6 py-10 gap-5">
-        <p className="text-center text-slate-400 text-xs font-medium tracking-wide uppercase mb-1">
-          Select your role
-        </p>
+      {/* Hero section */}
+      <div style={{ position: 'relative', height: 340, overflow: 'hidden' }}>
+        {/* Gradient image grid */}
+        <div style={{ display: 'flex', height: '100%' }}>
+          <div style={{ flex: 1, background: 'linear-gradient(160deg, #2d5016 0%, #4a7a20 100%)' }} />
+          <div style={{ flex: 1, background: 'linear-gradient(160deg, #8b4513 0%, #b5651d 100%)' }} />
+          <div style={{ flex: 1, background: 'linear-gradient(160deg, #4a90d9 0%, #2c6fad 100%)' }} />
+        </div>
 
-        {/* 農家 */}
-        <button
-          onClick={() => navigate('/flights')}
-          className="w-full rounded-2xl border-2 border-[#003B6F] p-5 flex items-center gap-4 hover:bg-blue-50 active:scale-[0.98] transition-all group"
-        >
-          <div className="w-14 h-14 rounded-2xl bg-[#003B6F] flex items-center justify-center flex-shrink-0 shadow-md">
-            <Leaf size={26} color="white" strokeWidth={2} />
-          </div>
-          <div className="text-left flex-1">
-            <div className="text-[#003B6F] font-bold text-base">農家として利用する</div>
-            <div className="text-slate-500 text-xs mt-1 leading-relaxed">
-              便の空きスペースを予約して<br />農産物を即日出荷
-            </div>
-          </div>
-          <ArrowRight size={18} className="text-[#003B6F] flex-shrink-0 group-hover:translate-x-1 transition-transform" />
-        </button>
+        {/* Overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.28)' }} />
 
-        {/* バイヤー */}
-        <button
-          onClick={() => navigate('/buyer/products')}
-          className="w-full rounded-2xl border-2 border-[#F5A800] p-5 flex items-center gap-4 hover:bg-amber-50 active:scale-[0.98] transition-all group"
-        >
-          <div className="w-14 h-14 rounded-2xl bg-[#F5A800] flex items-center justify-center flex-shrink-0 shadow-md">
-            <ShoppingBag size={26} color="white" strokeWidth={2} />
-          </div>
-          <div className="text-left flex-1">
-            <div className="text-[#F5A800] font-bold text-base">バイヤーとして利用する</div>
-            <div className="text-slate-500 text-xs mt-1 leading-relaxed">
-              産地直送の農産物を<br />リアルタイムで注文・購入
+        {/* Hero card */}
+        <div style={{
+          position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 20px',
+        }}>
+          <div style={{
+            background: 'rgba(255,255,255,0.93)', borderRadius: 14, padding: '28px 32px',
+            maxWidth: 420, width: '100%', boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 10 }}>
+              <div style={{ width: 3, height: 22, background: '#FF6B00', borderRadius: 2 }} />
+              <span style={{ fontSize: 11, fontWeight: 700, color: '#FF6B00', letterSpacing: 1, textTransform: 'uppercase' }}>Ibaraki Airport Fresh Market</span>
             </div>
+            <h1 style={{ fontSize: 28, fontWeight: 900, color: '#1a3a5c', lineHeight: 1.25, margin: '0 0 10px' }}>
+              最短、届けます。
+            </h1>
+            <p style={{ fontSize: 13, color: '#555', lineHeight: 1.7, margin: 0 }}>
+              茨城の農産物を全国へ。<br />スカイマーク便で翌日配送。
+            </p>
           </div>
-          <ArrowRight size={18} className="text-[#F5A800] flex-shrink-0 group-hover:translate-x-1 transition-transform" />
-        </button>
+        </div>
       </div>
 
-      {/* Footer */}
-      <div className="text-center text-xs text-slate-300 pb-8 px-4">
-        茨城空港 ベリーカーゴシステム powered by Claude AI
+      {/* Tab section */}
+      <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px 40px' }}>
+
+        {/* Tabs */}
+        <div style={{ display: 'flex', borderBottom: '2px solid #e5e5e5', marginTop: 28 }}>
+          <button
+            onClick={() => setActiveTab('farmer')}
+            style={{
+              flex: 1, padding: '12px 0', fontSize: 14, fontWeight: 700, cursor: 'pointer',
+              background: 'none', border: 'none', color: activeTab === 'farmer' ? '#1a3a5c' : '#999',
+              borderBottom: activeTab === 'farmer' ? '3px solid #1a3a5c' : '3px solid transparent',
+              marginBottom: -2, transition: 'all 0.15s',
+            }}
+          >
+            🌱 農家として出荷する
+          </button>
+          <button
+            onClick={() => setActiveTab('buyer')}
+            style={{
+              flex: 1, padding: '12px 0', fontSize: 14, fontWeight: 700, cursor: 'pointer',
+              background: 'none', border: 'none', color: activeTab === 'buyer' ? '#1a3a5c' : '#999',
+              borderBottom: activeTab === 'buyer' ? '3px solid #1a3a5c' : '3px solid transparent',
+              marginBottom: -2, transition: 'all 0.15s',
+            }}
+          >
+            🛒 バイヤーとして仕入れる
+          </button>
+        </div>
+
+        {/* Tab content */}
+        {activeTab === 'farmer' && (
+          <div style={{ paddingTop: 28 }}>
+            <p style={{ fontSize: 13, color: '#555', lineHeight: 1.8, margin: '0 0 8px' }}>
+              スカイマーク旅客便のベリースペースをリアルタイムで確認。メロン・干し芋・常陸牛などを当日予約・即日出荷できます。
+            </p>
+            <ul style={{ fontSize: 12, color: '#777', lineHeight: 2, paddingLeft: 18, margin: '0 0 24px' }}>
+              <li>AIが空きスペースと料金を自動算出</li>
+              <li>タクシーアプリ感覚で簡単予約</li>
+              <li>最短で翌日に全国へ配送</li>
+            </ul>
+            <button
+              onClick={() => navigate('/flights')}
+              style={{
+                width: '100%', padding: '14px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
+                background: '#1a3a5c', color: 'white', fontSize: 15, fontWeight: 700,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              }}
+            >
+              便を確認して予約する <ArrowRight size={16} />
+            </button>
+          </div>
+        )}
+
+        {activeTab === 'buyer' && (
+          <div style={{ paddingTop: 28 }}>
+            <p style={{ fontSize: 13, color: '#555', lineHeight: 1.8, margin: '0 0 8px' }}>
+              茨城・福島・栃木の農家から産地直送。鮮度保証付きの農産物をリアルタイムで注文・購入できます。
+            </p>
+            <ul style={{ fontSize: 12, color: '#777', lineHeight: 2, paddingLeft: 18, margin: '0 0 24px' }}>
+              <li>鮮度・産地・農家情報を詳細表示</li>
+              <li>メロン・常陸牛・鮮魚など多品目</li>
+              <li>まとめ買いでコスト削減</li>
+            </ul>
+            <button
+              onClick={() => navigate('/buyer/products')}
+              style={{
+                width: '100%', padding: '14px 0', borderRadius: 8, border: 'none', cursor: 'pointer',
+                background: '#FF6B00', color: 'white', fontSize: 15, fontWeight: 700,
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+              }}
+            >
+              商品を見る <ArrowRight size={16} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )
