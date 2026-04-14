@@ -1,3 +1,10 @@
+import melon from '../assets/images/melon.jpg'
+import hoshiimo from '../assets/images/hoshiimo.jpg'
+import hitachigyu from '../assets/images/hitachigyu.jpg'
+import hirame from '../assets/images/hirame.jpg'
+import apple from '../assets/images/Apple.jpg'
+import strawberry from '../assets/images/strawberry.jpg'
+
 export const BUYER_PRODUCTS = [
   {
     id: 1,
@@ -14,7 +21,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.8,
     reviewCount: 124,
     tags: ['冷蔵不要', '贈答用'],
-    imageUrl: 'https://images.unsplash.com/photo-1571575173700-afb9492e6a50?w=400',
+    imageUrl: melon,
     deliveryLabel: '明日届く',
     highlight: '糖度15度以上保証',
   },
@@ -33,7 +40,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.6,
     reviewCount: 89,
     tags: ['常温保存', '長期保存可'],
-    imageUrl: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400',
+    imageUrl: hoshiimo,
     deliveryLabel: '明日届く',
     highlight: '無添加・自然乾燥',
   },
@@ -52,7 +59,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.9,
     reviewCount: 56,
     tags: ['要冷蔵', 'A5等級', 'プレミアム'],
-    imageUrl: 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400',
+    imageUrl: hitachigyu,
     deliveryLabel: '2日後届く',
     highlight: 'A5等級・茨城ブランド',
   },
@@ -71,7 +78,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.7,
     reviewCount: 43,
     tags: ['要冷蔵', '即日発送'],
-    imageUrl: 'https://images.unsplash.com/photo-1534482421-64566f976cfa?w=400',
+    imageUrl: hirame,
     deliveryLabel: '明日届く',
     highlight: '水揚げ当日出荷',
   },
@@ -90,7 +97,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.5,
     reviewCount: 78,
     tags: ['常温保存', '贈答用'],
-    imageUrl: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400',
+    imageUrl: apple,
     deliveryLabel: '明日届く',
     highlight: '高地栽培・蜜入り',
   },
@@ -109,7 +116,7 @@ export const BUYER_PRODUCTS = [
     rating: 4.7,
     reviewCount: 102,
     tags: ['要冷蔵', '人気No.1'],
-    imageUrl: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400',
+    imageUrl: strawberry,
     deliveryLabel: '2日後届く',
     highlight: '栃木ブランド・糖度12以上',
   },
