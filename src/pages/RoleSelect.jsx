@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Plane, ArrowRight, LogIn, ChevronDown } from 'lucide-react'
-import airplane from '../assets/images/airplane.jpg'
+import airplane from '../assets/images/airplane.png'
 
 export default function RoleSelect() {
   const navigate = useNavigate()
