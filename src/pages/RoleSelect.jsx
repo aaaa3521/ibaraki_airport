@@ -48,25 +48,14 @@ export default function RoleSelect() {
       <div style={{ height: 'calc(100svh - 52px)', overflowY: 'scroll', scrollSnapType: 'y mandatory', WebkitOverflowScrolling: 'touch' }}>
 
       {/* Hero section */}
-      <div style={{ position: 'relative', height: 'calc(100svh - 52px)', overflow: 'hidden', scrollSnapAlign: 'start', flexShrink: 0 }}>
-        {/* Gradient background */}
-        <div style={{ height: '100%', background: 'linear-gradient(135deg, #003087 0%, #0050b3 60%, #1a6fd4 100%)' }} />
-
-        {/* Airplane image */}
-        <img
-          src={airplane}
-          alt=""
-          style={{
-            position: 'absolute',
-            bottom: 60,
-            right: 0,
-            width: '45%',
-            objectFit: 'contain',
-            opacity: 0.85,
-            filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))',
-            pointerEvents: 'none',
-          }}
-        />
+      <div style={{
+        position: 'relative', height: 'calc(100svh - 52px)', overflow: 'hidden', scrollSnapAlign: 'start', flexShrink: 0,
+        backgroundImage: `url(${airplane})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
+        {/* Overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)' }} />
 
         {/* Scroll indicator */}
         <div style={{ position: 'absolute', bottom: 28, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
