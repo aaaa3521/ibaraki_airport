@@ -47,7 +47,7 @@ export default function FlightList() {
       <header className="bg-[#003B6F] text-white px-4 py-4 shadow-md">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 mb-1">
-            <button onClick={() => navigate(-1)} className="text-blue-300 hover:text-white transition-colors">
+            <button onClick={() => navigate('/')} className="text-blue-300 hover:text-white transition-colors">
               <ArrowLeft size={20} />
             </button>
             <div className="w-9 h-9 rounded-full bg-[#F5A800] flex items-center justify-center flex-shrink-0">
