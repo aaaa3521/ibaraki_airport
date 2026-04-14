@@ -56,9 +56,6 @@ export default function RoleSelect() {
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}>
-        {/* Overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)' }} />
-
         {/* Scroll indicator */}
         <div style={{ position: 'absolute', bottom: 28, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
           <span style={{ fontSize: 10, color: 'rgba(255,255,255,0.65)', letterSpacing: 2 }}>SCROLL</span>
