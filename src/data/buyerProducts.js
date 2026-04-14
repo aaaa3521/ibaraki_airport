@@ -3,7 +3,7 @@ import hoshiimo from '../assets/images/hoshiimo.jpg'
 import hitachigyu from '../assets/images/hitachigyu.jpg'
 import hirame from '../assets/images/hirame.jpg'
 import apple from '../assets/images/Apple.jpg'
-import strawberry from '../assets/images/strawberry.jpg'
+import strawberry from '../assets/images/strawberry.webp'
 
 export const BUYER_PRODUCTS = [
   {
