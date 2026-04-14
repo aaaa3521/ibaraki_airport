@@ -45,15 +45,15 @@ export default function RoleSelect() {
       </header>
 
       {/* Scroll container */}
-      <div style={{ height: 'calc(100svh - 52px)', overflowY: 'scroll', scrollSnapType: 'y mandatory', WebkitOverflowScrolling: 'touch' }}>
+      <div style={{ height: 'calc(100svh - 52px)', overflowY: 'scroll', scrollSnapType: 'y mandatory', WebkitOverflowScrolling: 'touch', margin: 0, padding: 0 }}>
 
       {/* Hero section */}
       <div style={{
         position: 'relative', height: 'calc(100svh - 52px)', overflow: 'hidden', scrollSnapAlign: 'start', flexShrink: 0,
-        background: '#87CEEB',
+        width: '100%', margin: 0, padding: 0, boxSizing: 'border-box',
         backgroundImage: `url(${airplane})`,
-        backgroundSize: 'contain',
-        backgroundPosition: 'center bottom',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}>
         {/* Overlay */}
