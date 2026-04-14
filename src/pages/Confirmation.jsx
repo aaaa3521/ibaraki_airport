@@ -27,7 +27,7 @@ export default function Confirmation() {
     <div className="flex flex-col min-h-screen pb-20 bg-slate-50">
       <header className="bg-[#003B6F] text-white px-4 py-4 shadow-md">
         <div className="max-w-lg mx-auto flex items-center gap-3">
-          <button onClick={() => navigate('/flights')} className="text-blue-300 hover:text-white transition-colors">
+          <button onClick={() => navigate(-1)} className="text-blue-300 hover:text-white transition-colors">
             <ArrowLeft size={20} />
           </button>
           <div>
