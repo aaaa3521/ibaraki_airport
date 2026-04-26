@@ -6,18 +6,20 @@ import Booking from '@/pages/Booking'
 import Confirmation from '@/pages/Confirmation'
 import RoleSelect from '@/pages/RoleSelect'
 import FarmerHome from '@/pages/FarmerHome'
+import TruckRequest from '@/pages/TruckRequest'
 import BuyerProducts from '@/pages/BuyerProducts'
 import BuyerConfirm from '@/pages/BuyerConfirm'
 
 function Layout() {
   const { pathname } = useLocation()
-  const showBottomNav = pathname !== '/' && !pathname.startsWith('/buyer') && pathname !== '/farmer'
+  const showBottomNav = pathname !== '/' && !pathname.startsWith('/buyer') && pathname !== '/farmer' && pathname !== '/truck'
 
   return (
     <div className="relative max-w-lg mx-auto min-h-screen bg-white shadow-xl">
       <Routes>
         <Route path="/" element={<RoleSelect />} />
         <Route path="/farmer" element={<FarmerHome />} />
+        <Route path="/truck" element={<TruckRequest />} />
         <Route path="/flights" element={<FlightList />} />
         <Route path="/map" element={<MapView />} />
         <Route path="/booking" element={<Booking />} />
