@@ -50,9 +50,7 @@ export default function FlightList() {
             <button onClick={() => navigate('/')} className="text-[#111827] hover:text-slate-500 transition-colors">
               <ArrowLeft size={20} />
             </button>
-            <div className="w-9 h-9 rounded-full bg-[#1E3A5F] flex items-center justify-center flex-shrink-0">
-              <Plane size={20} color="white" strokeWidth={2} />
-            </div>
+            <Plane size={20} color="#111827" strokeWidth={2} className="flex-shrink-0" />
             <div>
               <h1 className="text-lg font-bold leading-tight text-[#111827]">茨城空港 ベリーカーゴ</h1>
               <p className="text-xs text-slate-500">Ibaraki Airport Belly Cargo System</p>
