@@ -4,9 +4,9 @@ import { Bell, ArrowRight, User, Package, Calendar, Tag } from 'lucide-react'
 const ORDER = {
   buyerName: '沖縄かりゆしリゾート',
   product: '茨城メロン',
-  weight: 300,
+  weight: 50,
   deliveryDate: '明日',
-  unitPrice: 850,
+  unitPrice: 4500,
 }
 
 export default function FarmerHome() {
