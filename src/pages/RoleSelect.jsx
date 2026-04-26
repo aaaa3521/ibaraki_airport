@@ -9,7 +9,7 @@ export default function RoleSelect() {
     {
       label: '農家として出荷する',
       Icon: Leaf,
-      onClick: () => navigate('/flights'),
+      onClick: () => navigate('/farmer'),
     },
     {
       label: 'バイヤーとして仕入れる',
