@@ -74,7 +74,7 @@ export default function Confirmation() {
                 ['フライト', `${flight.id}  茨城 → ${flight.arrivalCity}`],
                 ['出発 / 到着', `${flight.departureTime} / ${flight.arrivalTime}`],
                 ['品目', product.name],
-                ['数量', `${boxes}箱（${totalKg}kg）`],
+                ['数量', `${totalKg}kg`],
                 ['料金', `¥${totalPrice.toLocaleString()}`],
                 ['ステータス', '受付完了'],
               ].map(([label, value]) => (
