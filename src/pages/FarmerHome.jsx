@@ -38,7 +38,7 @@ export default function FarmerHome() {
 
           <div style={{ borderTop: '1px solid #F3F4F6', marginTop: 20, paddingTop: 16 }}>
             <button
-              onClick={() => navigate('/flights')}
+              onClick={() => navigate('/truck')}
               style={{
                 width: '100%', background: '#1E3A5F', color: '#FFFFFF',
                 border: 'none', borderRadius: 8, padding: '14px 0',
