@@ -44,21 +44,21 @@ export default function FlightList() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
       {/* Header */}
-      <header className="bg-[#003B6F] text-white px-4 py-4 shadow-md">
+      <header className="bg-[#FFFFFF] text-[#111827] px-4 py-4 shadow-md">
         <div className="max-w-lg mx-auto">
           <div className="flex items-center gap-3 mb-1">
-            <button onClick={() => navigate('/')} className="text-blue-300 hover:text-white transition-colors">
+            <button onClick={() => navigate('/')} className="text-[#111827] hover:text-slate-500 transition-colors">
               <ArrowLeft size={20} />
             </button>
-            <div className="w-9 h-9 rounded-full bg-[#F5A800] flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 rounded-full bg-[#1E3A5F] flex items-center justify-center flex-shrink-0">
               <Plane size={20} color="white" strokeWidth={2} />
             </div>
             <div>
-              <h1 className="text-lg font-bold leading-tight">茨城空港 ベリーカーゴ</h1>
-              <p className="text-xs text-blue-200">Ibaraki Airport Belly Cargo System</p>
+              <h1 className="text-lg font-bold leading-tight text-[#111827]">茨城空港 ベリーカーゴ</h1>
+              <p className="text-xs text-slate-500">Ibaraki Airport Belly Cargo System</p>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-2 text-xs text-blue-200">
+          <div className="flex items-center justify-between mt-2 text-xs text-slate-500">
             <span>2026年5月10日（日）</span>
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse inline-block" />
@@ -138,7 +138,7 @@ export default function FlightList() {
                 <div className="border-t border-slate-100 px-4 py-2 flex justify-end">
                   <button
                     onClick={() => navigate('/booking', { state: { flight } })}
-                    className="flex items-center gap-1.5 bg-[#F5A800] hover:bg-[#e09900] text-white text-sm font-bold px-4 py-1.5 rounded-lg transition-colors"
+                    className="flex items-center gap-1.5 bg-[#1E3A5F] hover:bg-[#162d4a] text-white text-sm font-bold px-4 py-1.5 transition-colors" style={{ borderRadius: 8 }}
                   >
                     予約する <ArrowRight size={14} />
                   </button>
