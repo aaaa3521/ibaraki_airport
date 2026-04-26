@@ -22,7 +22,7 @@ export default function RoleSelect() {
     <div style={{ minHeight: '100svh', background: '#FFFFFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 16px', fontFamily: '"Noto Sans JP", sans-serif' }}>
 
       {/* Logo */}
-      <img src={logo} alt="ロゴ" style={{ width: 320, marginBottom: 32, objectFit: 'contain' }} />
+      <img src={logo} alt="ロゴ" style={{ width: 500, marginBottom: 32, objectFit: 'contain' }} />
 
       {/* Cards */}
       <div style={{ width: '100%', maxWidth: 400, display: 'flex', flexDirection: 'column', gap: 12 }}>
