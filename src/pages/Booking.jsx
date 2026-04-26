@@ -29,7 +29,7 @@ export default function Booking() {
   const avail = getAvailableBelly(flight)
   const pct = getCapacityPercent(flight)
 
-  const pricePerKg = selectedProduct ? calcPricePerKg(flight, selectedProduct, pct) : 0
+  const pricePerKg = 1000
   const totalKg = selectedProduct ? Number(boxes) || 0 : 0
   const totalPrice = pricePerKg * totalKg
 
