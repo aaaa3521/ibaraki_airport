@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Leaf, Package, Beef, Fish, Apple, Cherry, Bot, Minus, Plus, ArrowRight } from 'lucide-react'
+import { ArrowLeft, Leaf, Package, Beef, Fish, Apple, Cherry, Bot, ArrowRight } from 'lucide-react'
 import { FLIGHTS, getAvailableBelly, getCapacityPercent } from '@/data/flights'
 import { PRODUCTS } from '@/data/products'
 import { calcPricePerKg, calcTotal } from '@/data/pricing'
@@ -123,27 +123,31 @@ export default function Booking() {
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
               className="bg-white rounded-xl shadow-sm border border-slate-200 p-4"
             >
-              <h2 className="text-sm font-bold text-slate-700 mb-3">数量（箱数）</h2>
-              <div className="flex items-center justify-center gap-6">
-                <button
-                  onClick={() => setBoxes(Math.max(selectedProduct.minBoxes ?? 1, boxes - 10))}
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-                >
-                  <Minus size={18} className="text-slate-600" />
-                </button>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#003B6F]">{boxes}</div>
-                  <div className="text-xs text-slate-500">箱</div>
-                </div>
-                <button
-                  onClick={() => setBoxes(Math.min(selectedProduct.maxBoxes ?? 500, boxes + 10))}
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
-                >
-                  <Plus size={18} className="text-slate-600" />
-                </button>
+              <h2 className="text-sm font-bold text-slate-700 mb-3">
+                数量（箱数）
+                <span className="text-xs text-slate-400 font-normal ml-2">最大 {avail.weight.toLocaleString()}kg まで</span>
+              </h2>
+              <div className="flex items-center gap-3">
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={boxes}
+                  onChange={(e) => {
+                    const raw = e.target.value.replace(/[^0-9]/g, '')
+                    if (raw === '') { setBoxes(''); return }
+                    const n = parseInt(raw, 10)
+                    setBoxes(Math.min(avail.weight, Math.max(1, n)))
+                  }}
+                  onBlur={() => {
+                    const n = parseInt(boxes, 10)
+                    if (!n || n < 1) setBoxes(1)
+                  }}
+                  className="w-28 text-center text-2xl font-bold text-[#003B6F] border border-slate-300 rounded-lg py-2 focus:outline-none focus:border-[#003B6F]"
+                />
+                <span className="text-sm text-slate-500">箱</span>
               </div>
-              <div className="text-center text-sm text-slate-500 mt-2">
-                = {totalKg}kg / {(boxes * selectedProduct.box.volume).toFixed(2)}m³
+              <div className="text-sm text-slate-500 mt-2">
+                = {totalKg}kg / {(Number(boxes) * selectedProduct.box.volume).toFixed(2)}m³
               </div>
             </motion.div>
           )}
