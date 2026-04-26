@@ -30,9 +30,8 @@ export default function Booking() {
   const pct = getCapacityPercent(flight)
 
   const pricePerKg = selectedProduct ? calcPricePerKg(flight, selectedProduct, pct) : 0
-  const { totalKg, totalPrice } = selectedProduct
-    ? calcTotal(pricePerKg, boxes, selectedProduct)
-    : { totalKg: 0, totalPrice: 0 }
+  const totalKg = selectedProduct ? Number(boxes) || 0 : 0
+  const totalPrice = pricePerKg * totalKg
 
   const fetchAI = useCallback(async (product) => {
     if (!product) return
@@ -124,7 +123,7 @@ export default function Booking() {
               className="bg-white rounded-xl shadow-sm border border-slate-200 p-4"
             >
               <h2 className="text-sm font-bold text-slate-700 mb-3">
-                数量（箱数）
+                数量（kg）
                 <span className="text-xs text-slate-400 font-normal ml-2">最大 {avail.weight.toLocaleString()}kg まで</span>
               </h2>
               <div className="flex items-center gap-3">
@@ -144,10 +143,7 @@ export default function Booking() {
                   }}
                   className="w-28 text-center text-2xl font-bold text-[#003B6F] border border-slate-300 rounded-lg py-2 focus:outline-none focus:border-[#003B6F]"
                 />
-                <span className="text-sm text-slate-500">箱</span>
-              </div>
-              <div className="text-sm text-slate-500 mt-2">
-                = {totalKg}kg / {(Number(boxes) * selectedProduct.box.volume).toFixed(2)}m³
+                <span className="text-sm text-slate-500">kg</span>
               </div>
             </motion.div>
           )}
