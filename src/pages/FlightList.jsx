@@ -92,11 +92,7 @@ export default function FlightList() {
           {sorted.map((flight, i) => {
             const avail = getAvailableBelly(flight)
             const pct = getCapacityPercent(flight)
-            const pricePerKg = Math.round(
-              120
-              * (flight.arrivalCity === '那覇' ? 1.6 : flight.arrivalCity === '福岡' ? 1.2 : 1.0)
-              * (pct < 30 ? 1.3 : pct > 70 ? 0.85 : 1.0)
-            )
+            const pricePerKg = 1000
 
             return (
               <motion.div
