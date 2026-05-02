@@ -9,10 +9,11 @@ import FarmerHome from '@/pages/FarmerHome'
 import TruckRequest from '@/pages/TruckRequest'
 import BuyerProducts from '@/pages/BuyerProducts'
 import BuyerConfirm from '@/pages/BuyerConfirm'
+import SkymarkDashboard from '@/pages/SkymarkDashboard'
 
 function Layout() {
   const { pathname } = useLocation()
-  const showBottomNav = pathname !== '/' && !pathname.startsWith('/buyer') && pathname !== '/farmer' && pathname !== '/truck'
+  const showBottomNav = pathname !== '/' && !pathname.startsWith('/buyer') && pathname !== '/farmer' && pathname !== '/truck' && pathname !== '/skymark'
 
   return (
     <div className="relative max-w-lg mx-auto min-h-screen bg-white shadow-xl">
@@ -26,6 +27,7 @@ function Layout() {
         <Route path="/confirm" element={<Confirmation />} />
         <Route path="/buyer/products" element={<BuyerProducts />} />
         <Route path="/buyer/confirm" element={<BuyerConfirm />} />
+        <Route path="/skymark" element={<SkymarkDashboard />} />
       </Routes>
       {showBottomNav && <BottomNav />}
     </div>

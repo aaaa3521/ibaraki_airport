@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Leaf, ShoppingBag, ChevronRight } from 'lucide-react'
+import { Leaf, ShoppingBag, ChevronRight, BarChart2 } from 'lucide-react'
 import logo from '../assets/images/unnamed.png'
 
 export default function RoleSelect() {
@@ -15,6 +15,11 @@ export default function RoleSelect() {
       label: 'バイヤーとして仕入れる',
       Icon: ShoppingBag,
       onClick: () => navigate('/buyer/products'),
+    },
+    {
+      label: 'スカイマーク運営として管理する',
+      Icon: BarChart2,
+      onClick: () => navigate('/skymark'),
     },
   ]
 
